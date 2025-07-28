@@ -1,0 +1,16 @@
+tasks:
+  - name: Solana & Anchor Setup
+    init: |
+      sh -c "$(curl -sSfL https://release.solana.com/v1.18.4/install)"
+      cargo install --git https://github.com/coral-xyz/anchor anchor-cli --locked
+    command: |
+      export PATH="/home/gitpod/.local/share/solana/install/active_release/bin:/home/gitpod/.cargo/bin:$PATH"
+      gp sync-done
+
+ports:
+  - port: 8899
+    onOpen: ignore
+  - port: 8900
+    onOpen: ignore
+  - port: 9000
+    onOpen: ignore
